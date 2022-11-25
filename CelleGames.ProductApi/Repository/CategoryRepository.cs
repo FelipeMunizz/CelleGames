@@ -24,7 +24,7 @@ namespace CelleGames.ProductApi.Repository
             return _mapper.Map<List<CategoryVO>>(categories);
         }
 
-        public async Task<CategoryVO> FindById(long id)
+        public async Task<CategoryVO> FindById(int id)
         {
             Category? category = await _context.Categories.Where(p => p.Id == id).FirstOrDefaultAsync();
             return _mapper.Map<CategoryVO>(category);
@@ -48,7 +48,7 @@ namespace CelleGames.ProductApi.Repository
 
             return _mapper.Map<CategoryVO>(category);
         }
-        public async Task<bool> Delete(long id)
+        public async Task<bool> Delete(int id)
         {
             try
             {

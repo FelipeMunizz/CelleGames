@@ -24,11 +24,16 @@ namespace CelleGames.ProductApi.Migrations
 
             modelBuilder.Entity("CelleGames.ProductApi.Model.Category", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -43,8 +48,8 @@ namespace CelleGames.ProductApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("CategoryId")
-                        .HasColumnType("bigint");
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<int>("CategoyId")
                         .HasColumnType("int");
@@ -83,10 +88,15 @@ namespace CelleGames.ProductApi.Migrations
             modelBuilder.Entity("CelleGames.ProductApi.Model.Product", b =>
                 {
                     b.HasOne("CelleGames.ProductApi.Model.Category", "Category")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("CelleGames.ProductApi.Model.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

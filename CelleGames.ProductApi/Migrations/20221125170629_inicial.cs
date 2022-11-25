@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CelleGames.ProductApi.Migrations
 {
     /// <inheritdoc />
-    public partial class FristMigration : Migration
+    public partial class inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,8 +15,9 @@ namespace CelleGames.ProductApi.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,7 +37,7 @@ namespace CelleGames.ProductApi.Migrations
                     Inventory = table.Column<float>(type: "real", nullable: false),
                     DateRegister = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CategoyId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<long>(type: "bigint", nullable: true)
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
