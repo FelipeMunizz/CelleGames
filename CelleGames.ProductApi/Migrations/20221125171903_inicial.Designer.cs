@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CelleGames.ProductApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221125170629_inicial")]
+    [Migration("20221125171903_inicial")]
     partial class inicial
     {
         /// <inheritdoc />
@@ -33,7 +33,7 @@ namespace CelleGames.ProductApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");

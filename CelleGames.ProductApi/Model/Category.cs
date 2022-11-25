@@ -16,7 +16,7 @@ namespace CelleGames.ProductApi.Model
 
         [Required(ErrorMessage = "Nome é obrigatório")]
         [StringLength(100)]
-        public string? Nome { get; set; }
+        public string? Name { get; set; }
 
         // Definindo relacionamento entre as tabelas
         public ICollection<Product>? Products { get; set; }
