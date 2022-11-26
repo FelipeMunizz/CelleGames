@@ -25,7 +25,7 @@ public class Product : BaseEntity
     public DateTime DateRegister { get; set; }
 
     // Definindo relacionamento entre as tabelas
-    public int CategoyId { get; set; }
+    public int CategoryId { get; set; }
 
     [JsonIgnore]
     public Category? Category { get; set; }

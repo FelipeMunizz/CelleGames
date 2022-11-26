@@ -6,6 +6,7 @@ namespace CelleGames.ProductApi.Repository.Interface
     {
         Task<IEnumerable<CategoryVO>> FindAll();
         Task<CategoryVO> FindById(int id);
+        Task<IEnumerable<CategoryVO>> FindCategoryProducts();
         Task<CategoryVO> Create(CategoryVO categoryVO);
         Task<CategoryVO> Update(CategoryVO categoryVO);
         Task<bool> Delete(int id);

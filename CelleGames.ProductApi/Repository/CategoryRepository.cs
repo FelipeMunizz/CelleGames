@@ -26,8 +26,13 @@ namespace CelleGames.ProductApi.Repository
 
         public async Task<CategoryVO> FindById(int id)
         {
-            Category? category = await _context.Categories.Where(p => p.Id == id).FirstOrDefaultAsync();
+            Category? category = await _context.Categories.Where(p => p.CategoryId == id).FirstOrDefaultAsync();
             return _mapper.Map<CategoryVO>(category);
+        }
+        public async Task<IEnumerable<CategoryVO>> FindCategoryProducts()
+        {
+            List<Category> categoriesProducts = await _context.Categories.Include(x => x.Products).ToListAsync();
+            return _mapper.Map<List<CategoryVO>>(categoriesProducts);
         }
 
         public async Task<CategoryVO> Create(CategoryVO categoryVO)
@@ -52,7 +57,7 @@ namespace CelleGames.ProductApi.Repository
         {
             try
             {
-                Category? category = await _context.Categories.Where(p => p.Id == id).FirstOrDefaultAsync();
+                Category? category = await _context.Categories.Where(p => p.CategoryId == id).FirstOrDefaultAsync();
                 if (category == null)
                     return false;
                 _context.Categories.Remove(category);
@@ -63,6 +68,6 @@ namespace CelleGames.ProductApi.Repository
             {
                 return false;
             }
-        }
+        }        
     }
 }

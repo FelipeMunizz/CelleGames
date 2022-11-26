@@ -12,7 +12,7 @@ namespace CelleGames.ProductApi.Model
         }
 
         [Key]
-        public int Id { get; set; }
+        public int CategoryId { get; set; }
 
         [Required(ErrorMessage = "Nome é obrigatório")]
         [StringLength(100)]

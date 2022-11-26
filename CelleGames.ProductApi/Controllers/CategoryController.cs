@@ -37,6 +37,13 @@ public class CategoryController : ControllerBase
         return Ok(category);
     }
 
+    [HttpGet("products")]
+    public async Task<ActionResult<IEnumerable<CategoryVO>>> FindCategoryProducts()
+    {
+        var categoryProducts = await _categoryRepository.FindCategoryProducts();
+        return Ok(categoryProducts);
+    }
+
     [HttpPost]
     public async Task<ActionResult<CategoryVO>> Create(CategoryVO categoryVO)
     {

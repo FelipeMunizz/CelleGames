@@ -8,5 +8,5 @@ public class ProductVO
     public string? Description { get; set; }
     public string? ImageUrl { get; set; }
     public float Inventory { get; set; }
-    public int CategoyId { get; set; }
+    public int CategoryId { get; set; }
 }
