@@ -25,7 +25,7 @@ public static class HttpClientExtensions
         return client.PostAsync(url, content);
     }
 
-    public static Task<HttpResponseMessage> PustAsJson<T>(this HttpClient client, string url, T data)
+    public static Task<HttpResponseMessage> PutAsJson<T>(this HttpClient client, string url, T data)
     {
         var dataAsString = JsonSerializer.Serialize(data);
         var content = new StringContent(dataAsString);
