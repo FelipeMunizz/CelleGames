@@ -1,8 +1,5 @@
 ﻿using CelleGames.ProductApi.DataVO.ValueObjects;
-using CelleGames.ProductApi.Model;
-using CelleGames.ProductApi.Repository;
 using CelleGames.ProductApi.Repository.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CelleGames.ProductApi.Controllers;
